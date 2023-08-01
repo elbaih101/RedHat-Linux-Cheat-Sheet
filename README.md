@@ -23,7 +23,9 @@ man                         # Command-line tool for displaying comprehensive doc
 <img src = 'https://imgur.com/HoAqQ6H'>
 </p>
 
-'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+</p>
+</details>
 <details><summary>Navigating Directories</summary><p>
 ## Navigating Directories
 
@@ -48,9 +50,10 @@ cd -                      # Go to last directory
 pushd foo                 # Go to foo sub-directory and add previous directory to stack
 popd                      # Go back to directory in stack saved by `pushd`
 ```
+'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+</p>
+</details>
 
-
-'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 <details><summary>Directories Commands</summary><p>
 touch : to Create file or Edit 
 touch with . (before file name) : Create hidden file
@@ -157,7 +160,10 @@ ls > /dev/null             # Discard standard output and error
 read foo                   # Read from standard input and write to the variable foo
 ```
 
-'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+</p>
+</details>
+
 <details><summary>Search</summary><p>
 
 ## Finding Files
@@ -223,7 +229,10 @@ grep --extended-regexp|-E 'foo|bar' /baz -R # Use regular expressions
 egrep 'foo|bar' /baz -R                     # Use regular expressions
 ```
 
-'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+</p>
+</details>
+
 <details><summary>Compressing Files</summary><p>
 
 tar (-c:create, -x:extract,f:filename) 	# Command-line tool for creating and extracting tar archives.
@@ -288,8 +297,11 @@ tar -x|--extract -f|--file=foo.tar              # Un-combine foo.tar into curren
 ```
 
 
-'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
-
+'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+</p>
+</details>
+<details><summary>File Permissions</summary><p>
+  
 chmod u[+-=](rwx)or(
 chown ahmed:data data
 ## File Permissions
@@ -329,8 +341,11 @@ chmod a+x foo.sh         # Give everybody execute permission
 chmod +x foo.sh          # Give everybody execute permission
 ```
 
-'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
-
+'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+</p>
+</details>
+<details><summary>Symbolic Links</summary><p>
+  
 ln -s S.Directory D.Directory
 ln S.Directory D.Directory
 
@@ -342,8 +357,12 @@ ln -s|--symbolic -f|--force foo bar # Overwrite an existing symbolic link 'bar'
 ls -l                               # Show where symbolic links are pointing
 ```
 
-'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+</p>
+</details>
+<details><summary>Identifying Processes</summary><p>
 
+  
 top
 htop
 ps 
@@ -400,8 +419,12 @@ pkill -9 foo           # force shut down process by name. Sends SIGKILL signal.
 killall foo            # Kill all process with the specified name gracefully.
 ```
 
-'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+</p>
+</details>
 
+<details><summary>Scheduled Tasks</summary><p>
+  
 ## Scheduled Tasks
 
 ```pre
@@ -431,8 +454,12 @@ at 12:34 PM next month     # Create a task in Vim to execute at 12:34 PM next mo
 at tomorrow                # Create a task in Vim to execute tomorrow
 ```
 
-'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
-
+'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+</p>
+</details>
+  
+<details><summary>SystemD and Services</summary><p>
+  
 ## SystemD and Services
 ```bash
 systemctl 						# Controls the systemd system and service manager.
@@ -451,16 +478,25 @@ systemctl list-dependencies --reverse ___ 		# Lists the reverse dependencies of 
 systemctl status (sshd) 				# Displays the status of the "sshd" systemd service.
 ```
 
-'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
-
+'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+</p>
+</details>
+  
+<details><summary>System Logging and Journaling</summary><p>
+  
 ## System Logging and Journaling
 ```bash
 system Logging /var/log/ 				# Directory containing system logs.
 Journal entries 					# Log entries generated by the systemd journal.
 ```
 
-'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
-
+'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+</p>
+</details>
+  
+<details><summary>Networking</summary>
+<p>
+  
 ## Networking
 ```bash
 nmcli 							# Command-line tool for managing NetworkManager.
@@ -478,7 +514,14 @@ cat /etc/hosts 						# Displays the system's hosts file.
 cat /etc/resolv.cof					# Displays the system's DNS resolver configuration file.
 ```
 
-'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+</p>
+</details>
+  
+<details><summary>Miscellaneous/summary>
+<p>
+  
+  
 
 ## Miscellaneous
 ```bash	
@@ -488,8 +531,13 @@ setfacl -m u:user:(r,w,x) FileName 			# Adds or modifies the ACL for the specifi
 ls -laR >						# Lists all files recursively in a directory, including hidden files, and saves the output to standard output.
 ```
 
-'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
-
+'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+</p>
+</details>
+  
+<details><summary>User and Group Management/summary>
+<p>  
+  
 ## User and Group Management
 ```bash	
 sudo usermod -aG groubname username 			# Adds the user "username" to the group "groupname".
