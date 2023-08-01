@@ -15,14 +15,12 @@ man                         # Command-line tool for displaying comprehensive doc
 --------------------------------------------------------------------------------------------------
 </p>
 </details>
-
 <details><summary>DESCRIBING LINUX FILE SYSTEM HIERARCHY CONCEPTS</summary><p>
 ## DESCRIBING LINUX FILE SYSTEM HIERARCHY CONCEPTS
 
 <p align="center">
 <img src = '[https://imgur.com/HoAqQ6H](https://i.imgur.com/HoAqQ6H.png)'>
 </p>
-
 --------------------------------------------------------------------------------------------------
 </p>
 </details>
@@ -135,7 +133,6 @@ open foo.txt           # Open file in the default editor
 wc foo.txt             # List number of lines words and characters in the file
 wc -l /etc/passwd/ 		    # all users
 ```
-
 --------------------------------------------------------------------------------------------------
 ## Standard Output, Standard Error and Standard Input
 
@@ -150,7 +147,6 @@ ls > /dev/null             # Discard standard output and error
 
 read foo                   # Read from standard input and write to the variable foo
 ```
-
 --------------------------------------------------------------------------------------------------
 </p>
 </details>
