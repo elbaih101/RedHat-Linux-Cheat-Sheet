@@ -1,9 +1,6 @@
 
 <details><summary>ACCESSING THE COMMAND LINE</summary><p>
-whoami : to know the current user
-cat (file name) : read file
-
-## ACCESSING THE COMMAND LINE
+  
 # EXECUTING COMMANDS USING THE BASH SHELL
 
 ```bash
@@ -23,10 +20,10 @@ man                         # Command-line tool for displaying comprehensive doc
 ## DESCRIBING LINUX FILE SYSTEM HIERARCHY CONCEPTS
 
 <p align="center">
-<img src = 'https://imgur.com/HoAqQ6H'>
+<img src = '[https://imgur.com/HoAqQ6H](https://i.imgur.com/HoAqQ6H.png)'>
 </p>
 
-'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+--------------------------------------------------------------------------------------------------
 </p>
 </details>
 <details><summary>Navigating Directories</summary><p>
@@ -53,7 +50,7 @@ cd -                      # Go to last directory
 pushd foo                 # Go to foo sub-directory and add previous directory to stack
 popd                      # Go back to directory in stack saved by `pushd`
 ```
-'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+--------------------------------------------------------------------------------------------------
 </p>
 </details>
 
@@ -73,7 +70,7 @@ touch test{a..c}       # Create testa, testb and testc files
 
 mktemp                 # Create a temporary file
 ```
-'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+--------------------------------------------------------------------------------------------------
 mkdir : Create directory
 
 ## Creating Directories
@@ -85,7 +82,8 @@ mkdir -p|--parents foo/bar       # Create nested directory
 mkdir -p|--parents {foo,bar}/baz # Create multiple nested directories
 mktemp -d|--directory            # Create a temporary directory
 ```
-'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+--------------------------------------------------------------------------------------------------
+
 
 cp (file name) [file directory] "optional" (new file name) : copy file
 mv (file name) [file directory] "optional" (new file name) : move file
@@ -104,7 +102,8 @@ rsync -avz username@hostname:/foo /bar                  # Copy remote directory 
 ```
 
 
-'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+--------------------------------------------------------------------------------------------------
+
 
 
 rm (file name or directory) : Delete
@@ -126,7 +125,8 @@ rm foo.txt            # Delete file
 rm -f|--force foo.txt # Delete file, ignore nonexistent files and never prompt
 ```
 
-'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+--------------------------------------------------------------------------------------------------
+
 
 
 ## Reading Files
@@ -143,7 +143,8 @@ wc foo.txt             # List number of lines words and characters in the file
 wc -l /etc/passwd/ 		    # all users
 ```
 
-'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+--------------------------------------------------------------------------------------------------
+
 
 
 echo "contant" > (file name) : edit replace
@@ -166,7 +167,8 @@ ls > /dev/null             # Discard standard output and error
 read foo                   # Read from standard input and write to the variable foo
 ```
 
-'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+--------------------------------------------------------------------------------------------------
+
 </p>
 </details>
 
@@ -209,7 +211,8 @@ find /path -type f -mtime +30 -delete      # Delete files that haven't been modi
 ```
 
 
-'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+--------------------------------------------------------------------------------------------------
+
 
 
 grep
@@ -236,7 +239,7 @@ grep --extended-regexp|-E 'foo|bar' /baz -R # Use regular expressions
 egrep 'foo|bar' /baz -R                     # Use regular expressions
 ```
 
-'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+--------------------------------------------------------------------------------------------------
 </p>
 </details>
 
@@ -304,7 +307,8 @@ tar -x|--extract -f|--file=foo.tar              # Un-combine foo.tar into curren
 ```
 
 
-'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+--------------------------------------------------------------------------------------------------
+
 </p>
 </details>
 <details><summary>File Permissions</summary><p>
@@ -348,7 +352,7 @@ chmod a+x foo.sh         # Give everybody execute permission
 chmod +x foo.sh          # Give everybody execute permission
 ```
 
-'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+--------------------------------------------------------------------------------------------------
 </p>
 </details>
 <details><summary>Symbolic Links</summary><p>
@@ -364,7 +368,8 @@ ln -s|--symbolic -f|--force foo bar # Overwrite an existing symbolic link 'bar'
 ls -l                               # Show where symbolic links are pointing
 ```
 
-'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+--------------------------------------------------------------------------------------------------
+
 </p>
 </details>
 <details><summary>Identifying Processes</summary><p>
@@ -426,7 +431,7 @@ pkill -9 foo           # force shut down process by name. Sends SIGKILL signal.
 killall foo            # Kill all process with the specified name gracefully.
 ```
 
-'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+--------------------------------------------------------------------------------------------------
 </p>
 </details>
 
@@ -461,7 +466,8 @@ at 12:34 PM next month     # Create a task in Vim to execute at 12:34 PM next mo
 at tomorrow                # Create a task in Vim to execute tomorrow
 ```
 
-'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+--------------------------------------------------------------------------------------------------
+
 </p>
 </details>
   
@@ -485,7 +491,8 @@ systemctl list-dependencies --reverse ___ 		# Lists the reverse dependencies of 
 systemctl status (sshd) 				# Displays the status of the "sshd" systemd service.
 ```
 
-'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+--------------------------------------------------------------------------------------------------
+
 </p>
 </details>
   
@@ -497,7 +504,8 @@ system Logging /var/log/ 				# Directory containing system logs.
 Journal entries 					# Log entries generated by the systemd journal.
 ```
 
-'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+--------------------------------------------------------------------------------------------------
+
 </p>
 </details>
   
@@ -521,7 +529,8 @@ cat /etc/hosts 						# Displays the system's hosts file.
 cat /etc/resolv.cof					# Displays the system's DNS resolver configuration file.
 ```
 
-'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+--------------------------------------------------------------------------------------------------
+
 </p>
 </details>
 <details><summary>Miscellaneous</summary><p>
@@ -534,7 +543,8 @@ setfacl -m u:user:(r,w,x) FileName 			# Adds or modifies the ACL for the specifi
 ls -laR >						# Lists all files recursively in a directory, including hidden files, and saves the output to standard output.
 ```
 
-'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+--------------------------------------------------------------------------------------------------
+
 </p>
 </details>
 <details><summary>User and Group Managemen</summary><p>
@@ -554,6 +564,7 @@ sudo chage -m 0 -M 90 -W 7 -I 14 user03 		# Changes the password aging settings 
 sudo usermod -L user03 					# Locks the password for the user "user03".
 sudo groupadd groupname 				# Command-line tool for creating a new group.
 ```
-'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+--------------------------------------------------------------------------------------------------
+
 </p>
 </details>
