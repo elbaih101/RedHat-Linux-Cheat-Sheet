@@ -22,7 +22,9 @@ man                         # Command-line tool for displaying comprehensive doc
 ## DESCRIBING LINUX FILE SYSTEM HIERARCHY CONCEPTS
 --------------------------------------------------------------------------------------------------
 <p align="center">
-<img src = '[https://imgur.com/HoAqQ6H](https://i.imgur.com/HoAqQ6H.png)'>
+
+<img src="https://i.imgur.com/HoAqQ6H.png">
+  
 </p>
 
 --------------------------------------------------------------------------------------------------
@@ -94,13 +96,9 @@ rm -r|--recursive -f|--force foo # Delete directory including contents, ignore n
 --------------------------------------------------------------------------------------------------
 </p>
 </details>
---------------------------------------------------------------------------------------------------
+
 <details><summary>File Commands</summary><p>
-
-cp (file name) [file directory] "optional" (new file name) : copy file
-mv (file name) [file directory] "optional" (new file name) : move file
-mv (file name) (new file name) : rename file
-
+  
 ## Creating Files
 
 ```bash
@@ -252,12 +250,7 @@ tar -c|--create -z|--gzip -f|--file=foo.tgz /{bar,baz}.txt    # Compress bar.txt
 tar -c|--create -z|--gzip -f|--file=foo.tgz /bar              # Compress directory bar into foo.tgz
 ```
 
-### tar -x
 
-```bash
-tar -x|--extract -z|--gzip -f|--file=foo.tar.gz # Un-compress foo.tar.gz into current directory
-tar -x|--extract -f|--file=foo.tar              # Un-combine foo.tar into current directory
-```
 
 
 ### zip
@@ -281,6 +274,13 @@ gzip -k|--keep /bar.txt foo.gz # Compress bar.txt into foo.gz
 ```
 
 ## Decompressing Files
+
+### tar -x
+
+```bash
+tar -x|--extract -z|--gzip -f|--file=foo.tar.gz # Un-compress foo.tar.gz into current directory
+tar -x|--extract -f|--file=foo.tar              # Un-combine foo.tar into current directory
+```
 
 ### unzip
 
