@@ -525,9 +525,8 @@ cat /etc/resolv.cof					# Displays the system's DNS resolver configuration file.
 </p>
 </details>
   
-<details><summary>Miscellaneous/summary>
+<details><summary>Miscellaneous/</summary>
 <p>
-  
   
 
 ## Miscellaneous
@@ -539,11 +538,12 @@ ls -laR >						# Lists all files recursively in a directory, including hidden fi
 ```
 
 '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+
 </p>
 </details>
   
-<details><summary>User and Group Management/summary>
-<p>  
+<details><summary>User and Group Management/</summary>
+<p>
   
 ## User and Group Management
 ```bash	
