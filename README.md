@@ -66,10 +66,6 @@ mkdir -p|--parents {foo,bar}/baz # Create multiple nested directories
 mktemp -d|--directory            # Create a temporary directory
 ```
 --------------------------------------------------------------------------------------------------
-cp (file name) [file directory] "optional" (new file name) : copy file
-mv (file name) [file directory] "optional" (new file name) : move file
-mv (file name) (new file name) : rename file
-
 ## Moving Directories
 
 ```bash
@@ -82,9 +78,6 @@ rsync -avz /foo username@hostname:/bar                  # Copy local directory t
 rsync -avz username@hostname:/foo /bar                  # Copy remote directory to local directory
 ```
 --------------------------------------------------------------------------------------------------
-rm (file name or directory) : Delete
-rmdir (directory name) : delete empty directory
-
 ## Deleting Directories
 
 ```bash
@@ -93,28 +86,9 @@ rm -r|--recursive foo            # Delete directory including contents
 rm -r|--recursive -f|--force foo # Delete directory including contents, ignore nonexistent files and never prompt
 ```
 --------------------------------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-echo "contant" > (file name) : edit replace
-echo "contant" >> (file name) : edit add new line
-echo : print
-
-
-touch : to Create file or Edit 
-
-
-
-
 </p>
 </details>
-
+--------------------------------------------------------------------------------------------------
 <details><summary>File Commands</summary><p>
 
 cp (file name) [file directory] "optional" (new file name) : copy file
@@ -140,14 +114,13 @@ cp (file name) [file directory] "optional" (new file name)   # Copy file
 mv (file name) [file directory] "optional" (new file name)   # Move file
 mv (file name) (new file name)                               # Rename file
 ```
-
+--------------------------------------------------------------------------------------------------
 ## Deleting Files
 
 ```bash
 rm foo.txt            # Delete file
 rm -f|--force foo.txt # Delete file, ignore nonexistent files and never prompt
 ```
-
 --------------------------------------------------------------------------------------------------
 ## Reading Files
 
@@ -179,11 +152,9 @@ read foo                   # Read from standard input and write to the variable 
 ```
 
 --------------------------------------------------------------------------------------------------
-
-
 </p>
 </details>
-
+--------------------------------------------------------------------------------------------------
 <details><summary>Search</summary><p>
 
 ## Finding Files
