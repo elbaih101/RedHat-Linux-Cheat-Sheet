@@ -53,25 +53,8 @@ popd                      # Go back to directory in stack saved by `pushd`
 --------------------------------------------------------------------------------------------------
 </p>
 </details>
-
-<details><summary>Directories Commands</summary><p>
-touch : to Create file or Edit 
-touch with . (before file name) : Create hidden file
-
-
-## Creating Files
-
-```bash
-touch foo.txt          # Create file or update existing files modified timestamp
-touch foo.txt bar.txt  # Create multiple files
-touch {foo,bar}.txt    # Create multiple files
-touch test{1..3}       # Create test1, test2 and test3 files
-touch test{a..c}       # Create testa, testb and testc files
-
-mktemp                 # Create a temporary file
-```
 --------------------------------------------------------------------------------------------------
-mkdir : Create directory
+<details><summary>Directories Commands</summary><p>
 
 ## Creating Directories
 
@@ -83,8 +66,6 @@ mkdir -p|--parents {foo,bar}/baz # Create multiple nested directories
 mktemp -d|--directory            # Create a temporary directory
 ```
 --------------------------------------------------------------------------------------------------
-
-
 cp (file name) [file directory] "optional" (new file name) : copy file
 mv (file name) [file directory] "optional" (new file name) : move file
 mv (file name) (new file name) : rename file
@@ -100,15 +81,9 @@ rsync -a|--archive -z|--compress -v|--verbose /foo /bar # Copy directory, withou
 rsync -avz /foo username@hostname:/bar                  # Copy local directory to remote directory
 rsync -avz username@hostname:/foo /bar                  # Copy remote directory to local directory
 ```
-
-
 --------------------------------------------------------------------------------------------------
-
-
-
 rm (file name or directory) : Delete
 rmdir (directory name) : delete empty directory
-
 
 ## Deleting Directories
 
@@ -116,6 +91,54 @@ rmdir (directory name) : delete empty directory
 rmdir foo                        # Delete empty directory
 rm -r|--recursive foo            # Delete directory including contents
 rm -r|--recursive -f|--force foo # Delete directory including contents, ignore nonexistent files and never prompt
+```
+--------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+echo "contant" > (file name) : edit replace
+echo "contant" >> (file name) : edit add new line
+echo : print
+
+
+touch : to Create file or Edit 
+
+
+
+
+</p>
+</details>
+
+<details><summary>File Commands</summary><p>
+
+cp (file name) [file directory] "optional" (new file name) : copy file
+mv (file name) [file directory] "optional" (new file name) : move file
+mv (file name) (new file name) : rename file
+
+## Creating Files
+
+```bash
+touch foo.txt          # Create file or update existing files modified timestamp
+touch foo.txt bar.txt  # Create multiple files
+touch {foo,bar}.txt    # Create multiple files
+touch test{1..3}       # Create test1, test2 and test3 files
+touch test{a..c}       # Create testa, testb and testc files
+touch .(file name)     # Create hidden file
+mktemp                 # Create a temporary file
+```
+--------------------------------------------------------------------------------------------------
+## Copy, Move & Rename Files
+
+```bash
+cp (file name) [file directory] "optional" (new file name)   # Copy file
+mv (file name) [file directory] "optional" (new file name)   # Move file
+mv (file name) (new file name)                               # Rename file
 ```
 
 ## Deleting Files
@@ -126,9 +149,6 @@ rm -f|--force foo.txt # Delete file, ignore nonexistent files and never prompt
 ```
 
 --------------------------------------------------------------------------------------------------
-
-
-
 ## Reading Files
 
 ```bash
@@ -144,15 +164,6 @@ wc -l /etc/passwd/ 		    # all users
 ```
 
 --------------------------------------------------------------------------------------------------
-
-
-
-echo "contant" > (file name) : edit replace
-echo "contant" >> (file name) : edit add new line
-echo : print
-
-
-
 ## Standard Output, Standard Error and Standard Input
 
 ```bash
@@ -168,6 +179,7 @@ read foo                   # Read from standard input and write to the variable 
 ```
 
 --------------------------------------------------------------------------------------------------
+
 
 </p>
 </details>
