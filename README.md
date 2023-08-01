@@ -12,19 +12,25 @@ man                         # Command-line tool for displaying comprehensive doc
 --help                      # Command-line option that displays a brief description of the usage and available options for the specified command or utility.
 
 ```
---------------------------------------------------------------------------------------------------
-</p>
-</details>
-<details><summary>DESCRIBING LINUX FILE SYSTEM HIERARCHY CONCEPTS</summary><p>
-## DESCRIBING LINUX FILE SYSTEM HIERARCHY CONCEPTS
 
+--------------------------------------------------------------------------------------------------
+<p>
+</details>
+
+<details><summary>DESCRIBING LINUX FILE SYSTEM HIERARCHY CONCEPTS</summary><p>
+
+## DESCRIBING LINUX FILE SYSTEM HIERARCHY CONCEPTS
+--------------------------------------------------------------------------------------------------
 <p align="center">
 <img src = '[https://imgur.com/HoAqQ6H](https://i.imgur.com/HoAqQ6H.png)'>
 </p>
+
 --------------------------------------------------------------------------------------------------
+
 </p>
 </details>
 <details><summary>Navigating Directories</summary><p>
+  
 ## Navigating Directories
 
 ```bash
@@ -49,9 +55,11 @@ pushd foo                 # Go to foo sub-directory and add previous directory t
 popd                      # Go back to directory in stack saved by `pushd`
 ```
 --------------------------------------------------------------------------------------------------
+
 </p>
+
 </details>
---------------------------------------------------------------------------------------------------
+
 <details><summary>Directories Commands</summary><p>
 
 ## Creating Directories
@@ -148,9 +156,11 @@ ls > /dev/null             # Discard standard output and error
 read foo                   # Read from standard input and write to the variable foo
 ```
 --------------------------------------------------------------------------------------------------
+
 </p>
+
 </details>
---------------------------------------------------------------------------------------------------
+
 <details><summary>Search</summary><p>
 
 ## Finding Files
@@ -192,12 +202,6 @@ find /path -type f -mtime +30 -delete      # Delete files that haven't been modi
 
 --------------------------------------------------------------------------------------------------
 
-
-
-grep
-grep -e -*(pattern) FileDirectory 
-
-
 ## Find in Files
 
 ```bash
@@ -216,6 +220,7 @@ grep 'foo' /bar --colour                    # Add colour to output
 grep 'foo\|bar' /baz -R                     # Search for 'foo' or 'bar' in directory 'baz'
 grep --extended-regexp|-E 'foo|bar' /baz -R # Use regular expressions
 egrep 'foo|bar' /baz -R                     # Use regular expressions
+grep -e 'pattern' (filename)               # Use to find search patterns 
 ```
 
 --------------------------------------------------------------------------------------------------
@@ -224,14 +229,36 @@ egrep 'foo|bar' /baz -R                     # Use regular expressions
 
 <details><summary>Compressing Files</summary><p>
 
-tar (-c:create, -x:extract,f:filename) 	# Command-line tool for creating and extracting tar archives.
-tar -cf archive.tar file1 file2 file3 	# Creates a tar archive named "archive.tar" containing the specified files.
-tar -tf archive.tar 			# Lists the contents of a tar archive.
--z or --gzip 				# Flag for gzip compression.
--j or --bzip2 				# Flag for bzip2 compression.
--J or -xz 				# Flag for xz compression.
-
+  
 ## Compressing Files
+
+### tar 
+```bash
+tar (-c:create, -x:extract, f:filename) 	# Command-line tool for creating and extracting tar archives.
+tar -cf archive.tar file1 file2 file3 	  # Creates a tar archive named "archive.tar" containing the specified files.
+tar -tf archive.tar 		                	# Lists the contents of a tar archive.
+-z or --gzip 				                      # Flag for gzip compression.
+-j or --bzip2 				                    # Flag for bzip2 compression.
+-J or -xz 			                      	  # Flag for xz compression.
+```
+
+### tar -c
+
+Compresses (optionally) and combines one or more files into a single *.tar, *.tar.gz, *.tpz or *.tgz file.
+
+```bash
+tar -c|--create -z|--gzip -f|--file=foo.tgz /bar.txt /baz.txt # Compress bar.txt and baz.txt into foo.tgz
+tar -c|--create -z|--gzip -f|--file=foo.tgz /{bar,baz}.txt    # Compress bar.txt and baz.txt into foo.tgz
+tar -c|--create -z|--gzip -f|--file=foo.tgz /bar              # Compress directory bar into foo.tgz
+```
+
+### tar -x
+
+```bash
+tar -x|--extract -z|--gzip -f|--file=foo.tar.gz # Un-compress foo.tar.gz into current directory
+tar -x|--extract -f|--file=foo.tar              # Un-combine foo.tar into current directory
+```
+
 
 ### zip
 
@@ -253,16 +280,6 @@ gzip /bar.txt foo.gz           # Compress bar.txt into foo.gz and then delete ba
 gzip -k|--keep /bar.txt foo.gz # Compress bar.txt into foo.gz
 ```
 
-### tar -c
-
-Compresses (optionally) and combines one or more files into a single *.tar, *.tar.gz, *.tpz or *.tgz file.
-
-```bash
-tar -c|--create -z|--gzip -f|--file=foo.tgz /bar.txt /baz.txt # Compress bar.txt and baz.txt into foo.tgz
-tar -c|--create -z|--gzip -f|--file=foo.tgz /{bar,baz}.txt    # Compress bar.txt and baz.txt into foo.tgz
-tar -c|--create -z|--gzip -f|--file=foo.tgz /bar              # Compress directory bar into foo.tgz
-```
-
 ## Decompressing Files
 
 ### unzip
@@ -276,13 +293,6 @@ unzip foo.zip          # Unzip foo.zip into current directory
 ```bash
 gunzip foo.gz           # Unzip foo.gz into current directory and delete foo.gz
 gunzip -k|--keep foo.gz # Unzip foo.gz into current directory
-```
-
-### tar -x
-
-```bash
-tar -x|--extract -z|--gzip -f|--file=foo.tar.gz # Un-compress foo.tar.gz into current directory
-tar -x|--extract -f|--file=foo.tar              # Un-combine foo.tar into current directory
 ```
 
 
