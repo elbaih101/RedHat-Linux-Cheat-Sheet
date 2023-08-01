@@ -524,10 +524,7 @@ cat /etc/resolv.cof					# Displays the system's DNS resolver configuration file.
 '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 </p>
 </details>
-  
-<details><summary>Miscellaneous/</summary>
-<p>
-  
+<details><summary>Miscellaneous</summary><p>
 
 ## Miscellaneous
 ```bash	
@@ -538,13 +535,11 @@ ls -laR >						# Lists all files recursively in a directory, including hidden fi
 ```
 
 '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
-
 </p>
 </details>
-  
-<details><summary>User and Group Management/</summary>
-<p>
-  
+<details><summary>User and Group Managemen</summary><p>
+
+ 
 ## User and Group Management
 ```bash	
 sudo usermod -aG groubname username 			# Adds the user "username" to the group "groupname".
@@ -559,3 +554,6 @@ sudo chage -m 0 -M 90 -W 7 -I 14 user03 		# Changes the password aging settings 
 sudo usermod -L user03 					# Locks the password for the user "user03".
 sudo groupadd groupname 				# Command-line tool for creating a new group.
 ```
+'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+</p>
+</details>
