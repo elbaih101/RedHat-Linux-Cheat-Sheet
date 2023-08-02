@@ -28,6 +28,21 @@ man       # Command-line tool for displaying comprehensive documentation (manual
   
 </p>
 
+```bash
+bin   # directory which contains binaries or executables that are essential to the entire operating system
+s-bin # directory it contains system binaries that should only be executed by the root user like mount or delete user many of these binaries may share common libraries which are stored in lib
+lib   # directory store many of the common libraries of these binaries
+usr   # directory user directory with its own bin s-bin directories the binaries or applications here are non-essential to the operating system 
+local # directory under user it contains any binaries that you compile manually to provide a safe place that won't conflict with any software installed by a system package manager 
+etc   # directory stands for editable text configuration many of these files end in conf and they're typically just text-based config files that you can modify in your editor 
+home  # directory you'll find a folder named after each user registered on the system it contains the files configuration and software for that user and you need to be logged in as that user or as a root user to modify it
+boot  # directory it contains the files needed  to boot the system  like the Linux kernel itself 
+dev   # directory which stands for device files  here you can interface with hardware or  drivers as if they were regular files  you might create disk partitions here
+opt   # directory contains optional or  add-on software  and you'll rarely interact with it 
+var   # directory  contains variable files that will change  as  the operating system is being used  things like logs and  cache files 
+temp  # directory is for temporary files  that won't be persisted between reboots  and finally, we have the weirdest one of  all  the 
+proc  # directory we have the weirdest one of all the illusionary file system that doesn't actually exist on the disk but is created in memory on the fly by the linux kernel to keep track of running processes
+```
 --------------------------------------------------------------------------------------------------
 
 </p>
