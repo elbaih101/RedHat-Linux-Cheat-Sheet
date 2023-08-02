@@ -249,9 +249,6 @@ tar -c|--create -z|--gzip -f|--file=Cfilename.tar /{file1,file2}.txt    # Compre
 tar -c|--create -z|--gzip -f|--file=Cfilename.tar /file                 # Compress directory bar into Cfilename.tar
 ```
 
-
-
-
 ### zip
 
 Compresses one or more files into *.zip files.
@@ -296,6 +293,10 @@ gunzip -k|--keep Cfilename.gz # Unzip Cfilename.gz into current directory
 
 
 --------------------------------------------------------------------------------------------------
+
+</p>
+</details>
+
 <details><summary>User Administration</summary>
 <p>
 
