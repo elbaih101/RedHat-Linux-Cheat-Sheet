@@ -301,7 +301,6 @@ gunzip -k|--keep Cfilename.gz # Unzip Cfilename.gz into current directory
 <p>
 
 ## User and Group Management
-```bash
 `User Management`
 ```bash
 useradd -g itadmin -c "DB User" -u 1135 -s "/bin/sh" -d /home/techguy1 
@@ -315,15 +314,15 @@ userdel username						                                  # Command-line tool for 
 userdel -r username                                           # Command-line tool for deleting a user and also deletes his home directory.
 id user 						                                          # Displays information about the user with the specified username.
 umask 							                                          # Command-line tool for setting the default permissions for new files and directories.
-`Group Management`
 ```
+`Group Management`
 ```bash
 groups 							                                          # Lists the groups that the current user belongs to.
 cat /etc/group 						                                    # Displays the system's group database.
 groupadd groupname 				                                    # Command-line tool for creating a new group.
 groupdel groupname                                            # removes an existing group
-`Password Management`
 ```
+`Password Management`
 ```bash
 chage                                                         # set password expiry
 chage -m 0 -M 90 -W 7 -I 14 user03                            # Changes the password aging settings for the user "user03".
