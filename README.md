@@ -42,7 +42,7 @@ ls -a|--all                                  # List directories including hidden
 ls -l                                        # List directories in long form
 ls -l -h|--human-readable                    # List directories in long form with human readable sizes
 ls -t                                        # List directories by modification time, newest first
-ls -lR /Directory (& or 2)> lsfile 			   # Lists all files recursively in a directory and saves the output to a file named "lsfile". Any errors that occur during the process will also be saved to the same file.
+ls -lR /Directory (& or 2)> lsfile 			     # Lists all files recursively in a directory and saves the output to a file named "lsfile". Any errors that occur during the process will also be saved to the same file.
 ls -lR /Directory | tee Filename | less      # Lists all files recursively in a directory, saves the output to a file named "Filename", and displays the output in the pager "less".
 stat filename.txt                            # List size, created and modified timestamps for a file
 stat filename.txt                            # List size, created and modified timestamps for a directory
@@ -137,7 +137,7 @@ head filename.txt      # Print top 10 lines of file
 tail filename.txt      # Print bottom 10 lines of file
 open filename.txt      # Open file in the default editor
 wc filename.txt        # List number of lines words and characters in the file
-wc -l /etc/passwd/ 	  # all users
+wc -l /etc/passwd/  	 # all users
 ```
 --------------------------------------------------------------------------------------------------
 ## Standard Output, Standard Error and Standard Input
@@ -231,11 +231,11 @@ grep -e 'pattern' filename.txt                    # Use to find search patterns
 ### tar 
 ```bash
 tar (-c:create, -x:extract, -t:list, f:filename) 	# Command-line tool for creating and extracting tar archives.
-tar -cf archive.tar file1 file2 file3 	            # Creates a tar archive named "archive.tar" containing the specified files.
-tar -tf archive.tar 		                	         # Lists the contents of a tar archive.
--z or --gzip 	.tar.gz			                     # Flag for gzip compression.
--j or --bzip2 	.tar.bz2			                     # Flag for bzip2 compression.
--J or -xz 		.tar.xz	                      	   # Flag for xz compression.
+tar -cf archive.tar file1 file2 file3 	          # Creates a tar archive named "archive.tar" containing the specified files.
+tar -tf archive.tar 		                	        # Lists the contents of a tar archive.
+-z or --gzip 	.tar.gz			                        # Flag for gzip compression.
+-j or --bzip2 	.tar.bz2			                    # Flag for bzip2 compression.
+-J or -xz 		.tar.xz	                      	    # Flag for xz compression.
 ```
 
 ### tar -c
@@ -380,7 +380,7 @@ ps
 ps aux | grep 
 ps all                 # List all processes
 pg
-pidof PName              # Return the PID of all PName processes
+pidof PName            # Return the PID of all PName processes
 
 CTRL+Z                 # Suspend a process running in the foreground
 bg                     # Resume a suspended process and run in the background
@@ -460,20 +460,20 @@ at tomorrow                # Create a task in Vim to execute tomorrow
   
 ## SystemD and Services
 ```bash
-systemctl 						                # Controls the systemd system and service manager.
-systemctl -t help 					          # Displays help information about systemd unit types.
-systemctl list-units -t service 			    # Lists all active systemd services on the system.
-systemctl --faild -type-service 			    # Lists all failed systemd services of type "service".
-systemctl start ___ 					          # Starts a systemd service with the specified name.
-systemctl is-active ___ 				       # Checks if a systemd service with the specified name is currently active.
-systemctl stop ___ 					          # Stops a systemd service with the specified name.
-systemctl enable ___ 					       # Enables a systemd service with the specified name to start automatically at boot time.
-systemctl restart ___ 				          # Restarts a systemd service with the specified name.
-systemctl reload ____ 					       # Reloads the configuration of a systemd service with the specified name.
-systemctl reload-or-restart ___ 			    # Reloads the configuration of a systemd service with the specified name, or restarts it if the reload fails.
-systemctl list-dependencies ___ 			    # Lists the dependencies of a systemd unit with the specified name.
+systemctl 						                     # Controls the systemd system and service manager.
+systemctl -t help 					               # Displays help information about systemd unit types.
+systemctl list-units -t service 			     # Lists all active systemd services on the system.
+systemctl --faild -type-service 			     # Lists all failed systemd services of type "service".
+systemctl start ___ 					             # Starts a systemd service with the specified name.
+systemctl is-active ___ 				           # Checks if a systemd service with the specified name is currently active.
+systemctl stop ___ 					               # Stops a systemd service with the specified name.
+systemctl enable ___ 					             # Enables a systemd service with the specified name to start automatically at boot time.
+systemctl restart ___ 				             # Restarts a systemd service with the specified name.
+systemctl reload ____ 					           # Reloads the configuration of a systemd service with the specified name.
+systemctl reload-or-restart ___ 			     # Reloads the configuration of a systemd service with the specified name, or restarts it if the reload fails.
+systemctl list-dependencies ___ 			     # Lists the dependencies of a systemd unit with the specified name.
 systemctl list-dependencies --reverse ___  # Lists the reverse dependencies of a systemd unit with the specified name.
-systemctl status sshd.service				    # Displays the status of the "sshd" systemd service.
+systemctl status sshd.service				       # Displays the status of the "sshd" systemd service.
 ```
 
 --------------------------------------------------------------------------------------------------
@@ -486,7 +486,7 @@ systemctl status sshd.service				    # Displays the status of the "sshd" systemd
 ## System Logging and Journaling
 ```bash
 system Logging /var/log/ 	   # Directory containing system logs.
-Journal entries 					# Log entries generated by the systemd journal.
+Journal entries 					   # Log entries generated by the systemd journal.
 ```
 
 --------------------------------------------------------------------------------------------------
@@ -499,19 +499,19 @@ Journal entries 					# Log entries generated by the systemd journal.
   
 ## Networking
 ```bash
-nmcli 							                        # Command-line tool for managing NetworkManager.
-nmtui 							                        # Text-based user interface for managing NetworkManager.
-ip addr 						                           # Displays network interface configuration information.
-ip config 						                        # Displays IP configuration information.
-ip route 						                        # Displays the system's routing table.
-tracepath 						                        # Traces the path that a packet takes from the host system to a remote system.
-ping 							                           # Sends ICMP echo request packets to a remote system to test connectivity.
-hostname 						                        # Displays or sets the system's hostname.
-hostnamectl						                        # Command-line tool for managing the system's hostname.
-hostnamectl status 					                  # Displays the current hostname and related information.
+nmcli 							                              # Command-line tool for managing NetworkManager.
+nmtui 							                              # Text-based user interface for managing NetworkManager.
+ip addr 						                              # Displays network interface configuration information.
+ip config 						                            # Displays IP configuration information.
+ip route 						                              # Displays the system's routing table.
+tracepath 						                            # Traces the path that a packet takes from the host system to a remote system.
+ping 							                                # Sends ICMP echo request packets to a remote system to test connectivity.
+hostname 						                              # Displays or sets the system's hostname.
+hostnamectl						                            # Command-line tool for managing the system's hostname.
+hostnamectl status 					                      # Displays the current hostname and related information.
 cat /etc/sysconfig/network-scripts//ifcfg-enp0s3 	# Displays the configuration file for the "enp0s3" network interface.
-cat /etc/hosts 						                  # Displays the system's hosts file.
-cat /etc/resolv.cof					                  # Displays the system's DNS resolver configuration file.
+cat /etc/hosts 						                        # Displays the system's hosts file.
+cat /etc/resolv.cof					                      # Displays the system's DNS resolver configuration file.
 ```
 ## Network Troubleshooting
 
@@ -553,10 +553,10 @@ cat /etc/resolv.conf        # resolv.conf lists nameservers
 
 ## Miscellaneous
 ```bash	
-acl 							            # Command-line tool for managing file ACLs (Access Control Lists).
-getfacl FileName 					      # Displays the ACLs for the specified file.
+acl 							                  # Command-line tool for managing file ACLs (Access Control Lists).
+getfacl FileName 					          # Displays the ACLs for the specified file.
 setfacl -m u:user:(r,w,x) FileName  # Adds or modifies the ACL for the specified file, giving the user "user" read, write, and execute permissions.
-ls -laR >						         # Lists all files recursively in a directory, including hidden files, and saves the output to standard output.
+ls -laR >						                # Lists all files recursively in a directory, including hidden files, and saves the output to standard output.
 ```
 
 --------------------------------------------------------------------------------------------------
@@ -569,16 +569,16 @@ ls -laR >						         # Lists all files recursively in a directory, including 
 ## User and Group Management
 ```bash	
 sudo usermod -aG groubname username       # Adds the user "username" to the group "groupname".
-sudo usermod -aG wheel username				# Adds the user "username" to the "wheel" group, which typically grants administrative privileges.
-sudo userdel 						            # Command-line tool for deleting a user.
-sudo useradd 						            # Command-line tool for adding a new user.
-id user 						                  # Displays information about the user with the specified username.
-groups 							               # Lists the groups that the current user belongs to.
-cat /etc/group 						         # Displays the system's group database.
-umask 							               # Command-line tool for setting the default permissions for new files and directories.
+sudo usermod -aG wheel username				    # Adds the user "username" to the "wheel" group, which typically grants administrative privileges.
+sudo userdel 						                  # Command-line tool for deleting a user.
+sudo useradd 						                  # Command-line tool for adding a new user.
+id user 						                      # Displays information about the user with the specified username.
+groups 							                      # Lists the groups that the current user belongs to.
+cat /etc/group 						                # Displays the system's group database.
+umask 							                      # Command-line tool for setting the default permissions for new files and directories.
 sudo chage -m 0 -M 90 -W 7 -I 14 user03   # Changes the password aging settings for the user "user03".
-sudo usermod -L user03 					      # Locks the password for the user "user03".
-sudo groupadd groupname 				      # Command-line tool for creating a new group.
+sudo usermod -L user03 					          # Locks the password for the user "user03".
+sudo groupadd groupname 				          # Command-line tool for creating a new group.
 ```
 --------------------------------------------------------------------------------------------------
 
