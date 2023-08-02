@@ -4,12 +4,13 @@
 # EXECUTING COMMANDS USING THE BASH SHELL
 
 ```bash
-whoami                      # Output The Current USERNAME.
-date                        # Display or set the system date and time.
-su                          # Switch User.
-passwd                      # Change user password.
-man                         # Command-line tool for displaying comprehensive documentation (manual pages) for other commands and utilities. 
---help                      # Command-line option that displays a brief description of the usage and available options for the specified command or utility.
+whoami    # Output The Current USERNAME.
+date      # Display or set the system date and time.
+su        # Switch User.
+passwd    # Change user password.
+whatis    # Show the command’s description in one line
+man       # Command-line tool for displaying comprehensive documentation (manual pages).
+--help    # Command-line option that displays a brief description of the usage and available options.
 
 ```
 
@@ -42,7 +43,7 @@ ls -a|--all                                  # List directories including hidden
 ls -l                                        # List directories in long form
 ls -l -h|--human-readable                    # List directories in long form with human readable sizes
 ls -t                                        # List directories by modification time, newest first
-ls -lR /Directory (& or 2)> lsfile 			     # Lists all files recursively in a directory and saves the output to a file named "lsfile". Any errors that occur during the process will also be saved to the same file.
+ls -lR /Directory (& or 2)> lsfile 			   # Lists all files recursively in a directory and saves the output to a file named "lsfile". Any errors that occur during the process will also be saved to the same file.
 ls -lR /Directory | tee Filename | less      # Lists all files recursively in a directory, saves the output to a file named "Filename", and displays the output in the pager "less".
 stat filename.txt                            # List size, created and modified timestamps for a file
 stat filename.txt                            # List size, created and modified timestamps for a directory
@@ -137,7 +138,7 @@ head filename.txt      # Print top 10 lines of file
 tail filename.txt      # Print bottom 10 lines of file
 open filename.txt      # Open file in the default editor
 wc filename.txt        # List number of lines words and characters in the file
-wc -l /etc/passwd/  	 # all users
+wc -l /etc/passwd/ 	  # all users
 ```
 --------------------------------------------------------------------------------------------------
 ## Standard Output, Standard Error and Standard Input
@@ -164,34 +165,34 @@ ls > /dev/null                # Discard standard output and error
 Find binary files for a command.
 
 ```bash
-type wget                                  # Find the binary
-which wget                                 # Find the binary
-whereis wget                               # Find the binary, source, and manual page files
+type wget                   # Find the binary
+which wget                  # Find the binary
+whereis wget                # Find the binary, source, and manual page files
 ```
 
 `locate` uses an index and is fast.
 
 ```bash
-updatedb                                   # Update the index
+updatedb                     # Update the index
 
-locate filename.txt                        # Find a file
-locate --ignore-case                       # Find a file and ignore case
-locate f*.txt                              # Find a text file starting with 'f'
+locate filename.txt          # Find a file
+locate --ignore-case         # Find a file and ignore case
+locate f*.txt                # Find a text file starting with 'f'
 ```
 
 `find` doesn't use an index and is slow.
 
 ```bash
-find /path -name filename.txt                   # Find a file
-find /path -iname filename.txt                  # Find a file with case insensitive search
-find /path -name "*.txt"                        # Find all text files
-find /path -name filename.txt -delete           # Find a file and delete it
-find /path -name "*.png" -exec pngquant {}      # Find all .png files and execute pngquant on it
-find /path -type f -name filename.txt           # Find a file
-find /path -type d -name directory              # Find a directory
-find /path -type l -name filename.txt           # Find a symbolic link
-find /path -type f -mtime +30                   # Find files that haven't been modified in 30 days
-find /path -type f -mtime +30 -delete           # Delete files that haven't been modified in 30 days
+find /path -name filename.txt                # Find a file
+find /path -iname filename.txt               # Find a file with case insensitive search
+find /path -name "*.txt"                     # Find all text files
+find /path -name filename.txt -delete        # Find a file and delete it
+find /path -name "*.png" -exec pngquant {}   # Find all .png files and execute pngquant on it
+find /path -type f -name filename.txt        # Find a file
+find /path -type d -name directory           # Find a directory
+find /path -type l -name filename.txt        # Find a symbolic link
+find /path -type f -mtime +30                # Find files that haven't been modified in 30 days
+find /path -type f -mtime +30 -delete        # Delete files that haven't been modified in 30 days
 
 ```
 
@@ -231,11 +232,11 @@ grep -e 'pattern' filename.txt                    # Use to find search patterns
 ### tar 
 ```bash
 tar (-c:create, -x:extract, -t:list, f:filename) 	# Command-line tool for creating and extracting tar archives.
-tar -cf archive.tar file1 file2 file3 	          # Creates a tar archive named "archive.tar" containing the specified files.
-tar -tf archive.tar 		                	        # Lists the contents of a tar archive.
--z or --gzip 	.tar.gz			                        # Flag for gzip compression.
--j or --bzip2 	.tar.bz2			                    # Flag for bzip2 compression.
--J or -xz 		.tar.xz	                      	    # Flag for xz compression.
+tar -cf archive.tar file1 file2 file3 	            # Creates a tar archive named "archive.tar" containing the specified files.
+tar -tf archive.tar 		                	         # Lists the contents of a tar archive.
+-z or --gzip 	.tar.gz			                     # Flag for gzip compression.
+-j or --bzip2 	.tar.bz2			                     # Flag for bzip2 compression.
+-J or -xz 		.tar.xz	                      	   # Flag for xz compression.
 ```
 
 ### tar -c
@@ -295,6 +296,38 @@ gunzip -k|--keep Cfilename.gz # Unzip Cfilename.gz into current directory
 
 
 --------------------------------------------------------------------------------------------------
+<details><summary>User Administration</summary>
+<p>
+
+## User and Group Management
+```bash	
+useradd -g itadmin -c "DB User" -u 1135 -s "/bin/sh" -d /home/techguy1 
+# In the above command, we are creating the new user with custom options as simple "#useradd <user>" will create with default setting. The -g (group) -c (description) -u (user id) -s (which shell to be assigned) -d (landed home dir)
+sudo useradd -g <primary group> -G <secondary group> username # assign the user primary and secondary group
+usermod -aG groubname username                                # Adds the user "username" to the group "groupname".
+usermod -aG wheel username			                             # Adds the user "username" to the "wheel" group, which typically grants administrative privileges.
+usermod -L username                                           # locking user
+usermod -U username                                           # unlocking user
+userdel username						                             # Command-line tool for deleting a user, leaves his home directory intact.
+userdel -r username                                           # Command-line tool for deleting a user and also deletes his home directory.
+id user 						                                      # Displays information about the user with the specified username.
+umask 							                                   # Command-line tool for setting the default permissions for new files and directories.
+usermod -L user03 					                             # Locks the password for the user "user03".
+groups 							                                   # Lists the groups that the current user belongs to.
+cat /etc/group 						                             # Displays the system's group database.
+groupadd groupname 				                                # Command-line tool for creating a new group.
+groupdel groupname                                            # removes an existing group
+chage                                                         # set password expiry
+chage -m 0 -M 90 -W 7 -I 14 user03                            # Changes the password aging settings for the user "user03".
+passwd -l <user>                                              # locking password of user
+passwd -u <user>                                              # unlocking password of user
+passwd -e <user>                                              # expire password 
+echo 'myPassword123' | sudo passwd --stdin <user> 
+passwd -x -1 <user>                                           # Turnoff password expiry
+
+
+```
+--------------------------------------------------------------------------------------------------
 
 </p>
 </details>
@@ -343,6 +376,24 @@ chown USER file.sh        # Change the owner
 --------------------------------------------------------------------------------------------------
 </p>
 </details>
+
+<details><summary>Access Control Lists (ACLs)</summary><p>
+
+## Access Control Lists (ACLs)
+```bash	
+getfacl FileName 					      # Displays the ACLs for the specified file.
+setfacl -m u:user:(r,w,x) FileName  # Adds or modifies the ACL for the specified file, giving the user "user" read, write, and execute permissions.
+setfacl -m u:priya:rw <file>        # Assiging the a new user 'priya' with read/write permission on the file. -m (modifying) -u (user)
+setfacl -d -m u:priya:rw <dir>      # Setting ACL for directory
+getfacl -R <dir> > permissions.acl  # BackUp ACL's in file having all info related ownership/dir inside the dir,subdir,files
+setfacl --restore=permissions.acl   # Restore the Permissions/Ownership
+ls -laR >						         # Lists all files recursively in a directory, including hidden files, and saves the output to standard output.
+```
+--------------------------------------------------------------------------------------------------
+
+</p>
+</details>
+
 <details><summary>Symbolic Links</summary><p>
 
 ## Symbolic Links
@@ -359,18 +410,6 @@ ls -l                                                 # Show where symbolic link
 </details>
 <details><summary>Identifying Processes</summary><p>
 
-  
-top
-htop
-ps 
-ls -l | grep fil
-ps aux | grep 
-pg
-Control Jobs sleep 1000 &   list jobs | choose fg | stop Ctrl Z | run bg | Kill Ctrl C
-Kill Process kill ProcessID | Force Kill kill -9 ProcessID | pkill ProcessName 
-Monitor Process , uptime | 
-Prioeity sudo renice (+ or - number to nice value) ProcessID
-
 ## Identifying Processes
 
 ```bash
@@ -380,7 +419,7 @@ ps
 ps aux | grep 
 ps all                 # List all processes
 pg
-pidof PName            # Return the PID of all PName processes
+pidof PName              # Return the PID of all PName processes
 
 CTRL+Z                 # Suspend a process running in the foreground
 bg                     # Resume a suspended process and run in the background
@@ -460,20 +499,20 @@ at tomorrow                # Create a task in Vim to execute tomorrow
   
 ## SystemD and Services
 ```bash
-systemctl 						                     # Controls the systemd system and service manager.
-systemctl -t help 					               # Displays help information about systemd unit types.
-systemctl list-units -t service 			     # Lists all active systemd services on the system.
-systemctl --faild -type-service 			     # Lists all failed systemd services of type "service".
-systemctl start ___ 					             # Starts a systemd service with the specified name.
-systemctl is-active ___ 				           # Checks if a systemd service with the specified name is currently active.
-systemctl stop ___ 					               # Stops a systemd service with the specified name.
-systemctl enable ___ 					             # Enables a systemd service with the specified name to start automatically at boot time.
-systemctl restart ___ 				             # Restarts a systemd service with the specified name.
-systemctl reload ____ 					           # Reloads the configuration of a systemd service with the specified name.
-systemctl reload-or-restart ___ 			     # Reloads the configuration of a systemd service with the specified name, or restarts it if the reload fails.
-systemctl list-dependencies ___ 			     # Lists the dependencies of a systemd unit with the specified name.
+systemctl 						                # Controls the systemd system and service manager.
+systemctl -t help 					          # Displays help information about systemd unit types.
+systemctl list-units -t service 			    # Lists all active systemd services on the system.
+systemctl --faild -type-service 			    # Lists all failed systemd services of type "service".
+systemctl start ___ 					          # Starts a systemd service with the specified name.
+systemctl is-active ___ 				       # Checks if a systemd service with the specified name is currently active.
+systemctl stop ___ 					          # Stops a systemd service with the specified name.
+systemctl enable ___ 					       # Enables a systemd service with the specified name to start automatically at boot time.
+systemctl restart ___ 				          # Restarts a systemd service with the specified name.
+systemctl reload ____ 					       # Reloads the configuration of a systemd service with the specified name.
+systemctl reload-or-restart ___ 			    # Reloads the configuration of a systemd service with the specified name, or restarts it if the reload fails.
+systemctl list-dependencies ___ 			    # Lists the dependencies of a systemd unit with the specified name.
 systemctl list-dependencies --reverse ___  # Lists the reverse dependencies of a systemd unit with the specified name.
-systemctl status sshd.service				       # Displays the status of the "sshd" systemd service.
+systemctl status sshd.service				    # Displays the status of the "sshd" systemd service.
 ```
 
 --------------------------------------------------------------------------------------------------
@@ -486,7 +525,7 @@ systemctl status sshd.service				       # Displays the status of the "sshd" syst
 ## System Logging and Journaling
 ```bash
 system Logging /var/log/ 	   # Directory containing system logs.
-Journal entries 					   # Log entries generated by the systemd journal.
+Journal entries 					# Log entries generated by the systemd journal.
 ```
 
 --------------------------------------------------------------------------------------------------
@@ -499,19 +538,19 @@ Journal entries 					   # Log entries generated by the systemd journal.
   
 ## Networking
 ```bash
-nmcli 							                              # Command-line tool for managing NetworkManager.
-nmtui 							                              # Text-based user interface for managing NetworkManager.
-ip addr 						                              # Displays network interface configuration information.
-ip config 						                            # Displays IP configuration information.
-ip route 						                              # Displays the system's routing table.
-tracepath 						                            # Traces the path that a packet takes from the host system to a remote system.
-ping 							                                # Sends ICMP echo request packets to a remote system to test connectivity.
-hostname 						                              # Displays or sets the system's hostname.
-hostnamectl						                            # Command-line tool for managing the system's hostname.
-hostnamectl status 					                      # Displays the current hostname and related information.
+nmcli 							                        # Command-line tool for managing NetworkManager.
+nmtui 							                        # Text-based user interface for managing NetworkManager.
+ip addr 						                           # Displays network interface configuration information.
+ip config 						                        # Displays IP configuration information.
+ip route 						                        # Displays the system's routing table.
+tracepath 						                        # Traces the path that a packet takes from the host system to a remote system.
+ping 							                           # Sends ICMP echo request packets to a remote system to test connectivity.
+hostname 						                        # Displays or sets the system's hostname.
+hostnamectl						                        # Command-line tool for managing the system's hostname.
+hostnamectl status 					                  # Displays the current hostname and related information.
 cat /etc/sysconfig/network-scripts//ifcfg-enp0s3 	# Displays the configuration file for the "enp0s3" network interface.
-cat /etc/hosts 						                        # Displays the system's hosts file.
-cat /etc/resolv.cof					                      # Displays the system's DNS resolver configuration file.
+cat /etc/hosts 						                  # Displays the system's hosts file.
+cat /etc/resolv.cof					                  # Displays the system's DNS resolver configuration file.
 ```
 ## Network Troubleshooting
 
@@ -535,6 +574,18 @@ nmap 0.0.0.0 -p1-65535      # Scan for open ports on localhost between 1 and 655
 nmap 192.168.4.3            # Scan for the 1000 most common open ports on a remote IP address
 nmap -sP 192.168.1.1/24     # Discover all machines on the network by ping'ing them
 ```
+## HTTP Requests
+
+```bash
+curl https://example.com                               # Return response body
+curl -i|--include https://example.com                  # Include status code and HTTP headers
+curl -L|--location https://example.com                 # Follow redirects
+curl -o|--remote-name foo.txt https://example.com      # Output to a text file
+curl -H|--header "User-Agent: Foo" https://example.com # Add a HTTP header
+
+wget https://example.com/file.txt .                            # Download a file to the current directory
+wget -O|--output-document foo.txt https://example.com/file.txt # Output to a file with the specified name
+```
 
 ## DNS
 
@@ -544,41 +595,6 @@ host example.com            # Show the IPv4 and IPv6 addresses
 dig example.com             # Show complete DNS information
 
 cat /etc/resolv.conf        # resolv.conf lists nameservers
-```
---------------------------------------------------------------------------------------------------
-
-</p>
-</details>
-<details><summary>Miscellaneous</summary><p>
-
-## Miscellaneous
-```bash	
-acl 							                  # Command-line tool for managing file ACLs (Access Control Lists).
-getfacl FileName 					          # Displays the ACLs for the specified file.
-setfacl -m u:user:(r,w,x) FileName  # Adds or modifies the ACL for the specified file, giving the user "user" read, write, and execute permissions.
-ls -laR >						                # Lists all files recursively in a directory, including hidden files, and saves the output to standard output.
-```
-
---------------------------------------------------------------------------------------------------
-
-</p>
-</details>
-<details><summary>User and Group Managemen</summary><p>
-
- 
-## User and Group Management
-```bash	
-sudo usermod -aG groubname username       # Adds the user "username" to the group "groupname".
-sudo usermod -aG wheel username				    # Adds the user "username" to the "wheel" group, which typically grants administrative privileges.
-sudo userdel 						                  # Command-line tool for deleting a user.
-sudo useradd 						                  # Command-line tool for adding a new user.
-id user 						                      # Displays information about the user with the specified username.
-groups 							                      # Lists the groups that the current user belongs to.
-cat /etc/group 						                # Displays the system's group database.
-umask 							                      # Command-line tool for setting the default permissions for new files and directories.
-sudo chage -m 0 -M 90 -W 7 -I 14 user03   # Changes the password aging settings for the user "user03".
-sudo usermod -L user03 					          # Locks the password for the user "user03".
-sudo groupadd groupname 				          # Command-line tool for creating a new group.
 ```
 --------------------------------------------------------------------------------------------------
 
