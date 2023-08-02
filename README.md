@@ -557,6 +557,8 @@ cat /etc/sysconfig/network-scripts//ifcfg-enp0s3 	# Displays the configuration f
 cat /etc/hosts 						                  # Displays the system's hosts file.
 cat /etc/resolv.cof					                  # Displays the system's DNS resolver configuration file.
 ```
+--------------------------------------------------------------------------------------------------
+
 ## Network Troubleshooting
 
 ```bash
@@ -579,6 +581,8 @@ nmap 0.0.0.0 -p1-65535      # Scan for open ports on localhost between 1 and 655
 nmap 192.168.4.3            # Scan for the 1000 most common open ports on a remote IP address
 nmap -sP 192.168.1.1/24     # Discover all machines on the network by ping'ing them
 ```
+--------------------------------------------------------------------------------------------------
+
 ## HTTP Requests
 
 ```bash
@@ -591,6 +595,7 @@ curl -H|--header "User-Agent: Foo" https://example.com # Add a HTTP header
 wget https://example.com/file.txt .                            # Download a file to the current directory
 wget -O|--output-document foo.txt https://example.com/file.txt # Output to a file with the specified name
 ```
+--------------------------------------------------------------------------------------------------
 
 ## DNS
 
@@ -601,6 +606,33 @@ dig example.com             # Show complete DNS information
 
 cat /etc/resolv.conf        # resolv.conf lists nameservers
 ```
+--------------------------------------------------------------------------------------------------
+
+## Secure Shell Protocol (SSH)
+
+```bash
+ssh hostname                                        # Connect to hostname using your current user name over the default SSH port 22.
+ssh -i identityfile.pem hostname                    # Connect to hostname using the identity file.
+ssh user@hostname                                   # Connect to hostname using the user over the default SSH port 22.
+ssh user@hostname -p 8765                           # Connect to hostname using the user over a custom port.
+ssh ssh://user@hostname:8765                        # Connect to hostname using the user over a custom port.
+ssh-keygen                                          # Create a private key and matching public key.
+ssh-keygen -f .ssh/key-with-pass                    # Determines the files where the keys are saved.
+ssh-copy-id -i .ssh/key-with-pass.pub user@hostname # Copies the public key of the SSH key pair to the destination system.
+ssh -i .ssh/key-with-pass user@hostname             # Authenticate to the host system using the corresponding private key.
+```
+
+Set default user and port in `~/.ssh/config`, so you can just enter the name next time:
+
+```bash
+$ cat ~/.ssh/config
+Host name
+  User foo
+  Hostname 127.0.0.1
+  Port 8765
+$ ssh name
+```
+
 --------------------------------------------------------------------------------------------------
 
 </p>
