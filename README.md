@@ -6,7 +6,7 @@
 ```bash
 whoami                      # Output The Current USERNAME.
 date                        # Display or set the system date and time.
-su``                        # Switch User.
+su                          # Switch User.
 passwd                      # Change user password.
 man                         # Command-line tool for displaying comprehensive documentation (manual pages) for other commands and utilities. 
 --help                      # Command-line option that displays a brief description of the usage and available options for the specified command or utility.
@@ -36,25 +36,25 @@ man                         # Command-line tool for displaying comprehensive doc
 ## Navigating Directories
 
 ```bash
-pwd                       # Print current directory path
-ls                        # List directories
-ls -a|--all               # List directories including hidden
-ls -l                     # List directories in long form
-ls -l -h|--human-readable # List directories in long form with human readable sizes
-ls -t                     # List directories by modification time, newest first
-ls -lR /Directory (& or 2)> lsfile 			# Lists all files recursively in a directory and saves the output to a file named "lsfile". Any errors that occur during the process will also be saved to the same file.
-ls -lR /Directory | tee Filename | less     # Lists all files recursively in a directory, saves the output to a file named "Filename", and displays the output in the pager "less".
-stat foo.txt              # List size, created and modified timestamps for a file
-stat foo                  # List size, created and modified timestamps for a directory
-tree                      # List directory and file tree
-tree -a                   # List directory and file tree including hidden
-tree -d                   # List directory tree
-cd foo                    # Go to foo sub-directory
-cd                        # Go to home directory
-cd ~                      # Go to home directory
-cd -                      # Go to last directory
-pushd foo                 # Go to foo sub-directory and add previous directory to stack
-popd                      # Go back to directory in stack saved by `pushd`
+pwd                                          # Print current directory path
+ls                                           # List directories
+ls -a|--all                                  # List directories including hidden
+ls -l                                        # List directories in long form
+ls -l -h|--human-readable                    # List directories in long form with human readable sizes
+ls -t                                        # List directories by modification time, newest first
+ls -lR /Directory (& or 2)> lsfile 			   # Lists all files recursively in a directory and saves the output to a file named "lsfile". Any errors that occur during the process will also be saved to the same file.
+ls -lR /Directory | tee Filename | less      # Lists all files recursively in a directory, saves the output to a file named "Filename", and displays the output in the pager "less".
+stat filename.txt                            # List size, created and modified timestamps for a file
+stat filename.txt                            # List size, created and modified timestamps for a directory
+tree                                         # List directory and file tree
+tree -a                                      # List directory and file tree including hidden
+tree -d                                      # List directory tree
+cd Directory                                 # Go to sub-directory
+cd                                           # Go to home directory
+cd ~                                         # Go to home directory
+cd -                                         # Go to last directory
+pushd directoryname                          # Go to directoryname sub-directory and add previous directory to stack
+popd                                         # Go back to directory in stack saved by `pushd`
 ```
 --------------------------------------------------------------------------------------------------
 
@@ -67,31 +67,31 @@ popd                      # Go back to directory in stack saved by `pushd`
 ## Creating Directories
 
 ```bash
-mkdir foo                        # Create a directory
-mkdir foo bar                    # Create multiple directories
-mkdir -p|--parents foo/bar       # Create nested directory
-mkdir -p|--parents {foo,bar}/baz # Create multiple nested directories
-mktemp -d|--directory            # Create a temporary directory
+mkdir directoryname                                          # Create a directory
+mkdir directoryname1 directoryname2                          # Create multiple directories
+mkdir -p|--parents directoryname1/directoryname2             # Create nested directory
+mkdir -p|--parents {directoryname1,directoryname2}/directory # Create multiple nested directories
+mktemp -d|--directory                                        # Create a temporary directory
 ```
 --------------------------------------------------------------------------------------------------
 ## Moving Directories
 
-```bash
-cp -R|--recursive foo bar                               # Copy directory
-mv foo bar                                              # Move directory
+```bash 
+cp -R|--recursive directoryname1 directoryname2                # Copy directory
+mv directoryname1 directoryname2                               # Move directory
 
-rsync -z|--compress -v|--verbose /foo /bar              # Copy directory, overwrites destination
-rsync -a|--archive -z|--compress -v|--verbose /foo /bar # Copy directory, without overwriting destination
-rsync -avz /foo username@hostname:/bar                  # Copy local directory to remote directory
-rsync -avz username@hostname:/foo /bar                  # Copy remote directory to local directory
+rsync -z|--compress -v|--verbose /file /directory              # Copy directory, overwrites destination
+rsync -a|--archive -z|--compress -v|--verbose /file /directory # Copy directory, without overwriting destination
+rsync -avz /directoryname username@hostname:/directory         # Copy local directory to remote directory
+rsync -avz username@hostname:/file /directory                  # Copy remote directory to local directory
 ```
 --------------------------------------------------------------------------------------------------
 ## Deleting Directories
 
 ```bash
-rmdir foo                        # Delete empty directory
-rm -r|--recursive foo            # Delete directory including contents
-rm -r|--recursive -f|--force foo # Delete directory including contents, ignore nonexistent files and never prompt
+rmdir directoryname                        # Delete empty directory
+rm -r|--recursive directoryname            # Delete directory including contents
+rm -r|--recursive -f|--force directoryname # Delete directory including contents, ignore nonexistent files and never prompt
 ```
 --------------------------------------------------------------------------------------------------
 </p>
@@ -102,56 +102,54 @@ rm -r|--recursive -f|--force foo # Delete directory including contents, ignore n
 ## Creating Files
 
 ```bash
-touch foo.txt          # Create file or update existing files modified timestamp
-touch foo.txt bar.txt  # Create multiple files
-touch {foo,bar}.txt    # Create multiple files
-touch test{1..3}       # Create test1, test2 and test3 files
-touch test{a..c}       # Create testa, testb and testc files
-touch .(file name)     # Create hidden file
-mktemp                 # Create a temporary file
+touch filename.txt                           # Create file or update existing files modified timestamp
+touch filename1.txt  filename2.txt           # Create multiple files
+touch {filename1.txt,filename2.txt }.txt     # Create multiple files
+touch test{1..3}                             # Create test1, test2 and test3 files
+touch test{a..c}                             # Create testa, testb and testc files
+touch .(file name)                           # Create hidden file
+mktemp                                       # Create a temporary file
 ```
 --------------------------------------------------------------------------------------------------
 ## Copy, Move & Rename Files
 
 ```bash
-cp (file name) [file directory] "optional" (new file name)   # Copy file
-mv (file name) [file directory] "optional" (new file name)   # Move file
-mv (file name) (new file name)                               # Rename file
+cp filename.txt filedirectory "optional" newfilename.txt   # Copy file
+mv filename.txt filedirectory "optional" newfilename.txt   # Move file
+mv filename.txt newfilename.txt                            # Rename file
 ```
 --------------------------------------------------------------------------------------------------
 ## Deleting Files
 
 ```bash
-rm foo.txt            # Delete file
-rm -f|--force foo.txt # Delete file, ignore nonexistent files and never prompt
+rm filename.txt            # Delete file
+rm -f|--force filename.txt # Delete file, ignore nonexistent files and never prompt
 ```
 --------------------------------------------------------------------------------------------------
 ## Reading Files
 
 ```bash
 file                   # Determine file type
-cat foo.txt            # Print all contents
+cat filename.txt       # Print all contents
 more                   # view the contents of a file one page at a time.
-less foo.txt           # Print some contents at a time (g - go to top of file, SHIFT+g, go to bottom of file, /foo to search for 'foo')
-head foo.txt           # Print top 10 lines of file
-tail foo.txt           # Print bottom 10 lines of file
-open foo.txt           # Open file in the default editor
-wc foo.txt             # List number of lines words and characters in the file
-wc -l /etc/passwd/ 		    # all users
+less filename.txt      # Print some contents at a time (g - go to top of file, SHIFT+g, go to bottom of file)
+head filename.txt      # Print top 10 lines of file
+tail filename.txt      # Print bottom 10 lines of file
+open filename.txt      # Open file in the default editor
+wc filename.txt        # List number of lines words and characters in the file
+wc -l /etc/passwd/ 	  # all users
 ```
 --------------------------------------------------------------------------------------------------
 ## Standard Output, Standard Error and Standard Input
 
 ```bash
-echo "foo" > bar.txt       # Overwrite file with content
-echo "foo" >> bar.txt      # Append to file with content
+echo "Words" > filename.txt   # Overwrite file with content
+echo "Words" >> filename.txt  # Append to file with content
 
-ls exists 1> stdout.txt    # Redirect the standard output to a file
-ls noexist 2> stderror.txt # Redirect the standard error output to a file
-ls 2>&1 out.txt            # Redirect standard output and error to a file
-ls > /dev/null             # Discard standard output and error
-
-read foo                   # Read from standard input and write to the variable foo
+ls exists 1> filename.txt     # Redirect the standard output to a file
+ls noexist 2> filename.txt    # Rdirect the standard error output to a file
+ls 2>&1 filename.txt          # Redirect standard output and error to a file
+ls > /dev/null                # Discard standard output and error
 ```
 --------------------------------------------------------------------------------------------------
 
@@ -176,7 +174,7 @@ whereis wget                               # Find the binary, source, and manual
 ```bash
 updatedb                                   # Update the index
 
-locate foo.txt                             # Find a file
+locate filename.txt                        # Find a file
 locate --ignore-case                       # Find a file and ignore case
 locate f*.txt                              # Find a text file starting with 'f'
 ```
@@ -184,16 +182,16 @@ locate f*.txt                              # Find a text file starting with 'f'
 `find` doesn't use an index and is slow.
 
 ```bash
-find /path -name foo.txt                   # Find a file
-find /path -iname foo.txt                  # Find a file with case insensitive search
-find /path -name "*.txt"                   # Find all text files
-find /path -name foo.txt -delete           # Find a file and delete it
-find /path -name "*.png" -exec pngquant {} # Find all .png files and execute pngquant on it
-find /path -type f -name foo.txt           # Find a file
-find /path -type d -name foo               # Find a directory
-find /path -type l -name foo.txt           # Find a symbolic link
-find /path -type f -mtime +30              # Find files that haven't been modified in 30 days
-find /path -type f -mtime +30 -delete      # Delete files that haven't been modified in 30 days
+find /path -name filename.txt                   # Find a file
+find /path -iname filename.txt                  # Find a file with case insensitive search
+find /path -name "*.txt"                        # Find all text files
+find /path -name filename.txt -delete           # Find a file and delete it
+find /path -name "*.png" -exec pngquant {}      # Find all .png files and execute pngquant on it
+find /path -type f -name filename.txt           # Find a file
+find /path -type d -name directory              # Find a directory
+find /path -type l -name filename.txt           # Find a symbolic link
+find /path -type f -mtime +30                   # Find files that haven't been modified in 30 days
+find /path -type f -mtime +30 -delete           # Delete files that haven't been modified in 30 days
 
 ```
 
@@ -203,22 +201,22 @@ find /path -type f -mtime +30 -delete      # Delete files that haven't been modi
 ## Find in Files
 
 ```bash
-grep 'foo' /bar.txt                         # Search for 'foo' in file 'bar.txt'
-grep 'foo' /bar -r|--recursive              # Search for 'foo' in directory 'bar'
-grep 'foo' /bar -R|--dereference-recursive  # Search for 'foo' in directory 'bar' and follow symbolic links
-grep 'foo' /bar -l|--files-with-matches     # Show only files that match
-grep 'foo' /bar -L|--files-without-match    # Show only files that don't match
-grep 'Foo' /bar -i|--ignore-case            # Case insensitive search
-grep 'foo' /bar -x|--line-regexp            # Match the entire line
-grep 'foo' /bar -C|--context 1              # Add N line of context above and below each search result
-grep 'foo' /bar -v|--invert-match           # Show only lines that don't match
-grep 'foo' /bar -c|--count                  # Count the number lines that match
-grep 'foo' /bar -n|--line-number            # Add line numbers
-grep 'foo' /bar --colour                    # Add colour to output
-grep 'foo\|bar' /baz -R                     # Search for 'foo' or 'bar' in directory 'baz'
-grep --extended-regexp|-E 'foo|bar' /baz -R # Use regular expressions
-egrep 'foo|bar' /baz -R                     # Use regular expressions
-grep -e 'pattern' (filename)               # Use to find search patterns 
+grep 'foo' /filename.txt                          # Search for 'foo' in file 'filename.txt'
+grep 'foo' /directory -r|--recursive              # Search for 'foo' in directory 
+grep 'foo' /directory -R|--dereference-recursive  # Search for 'foo' in directory and follow symbolic links
+grep 'foo' /directory -l|--files-with-matches     # Show only files that match
+grep 'foo' /directory -L|--files-without-match    # Show only files that don't match
+grep 'Foo' /directory -i|--ignore-case            # Case insensitive search
+grep 'foo' /directory -x|--line-regexp            # Match the entire line
+grep 'foo' /directory -C|--context 1              # Add N line of context above and below each search result
+grep 'foo' /directory -v|--invert-match           # Show only lines that don't match
+grep 'foo' /directory -c|--count                  # Count the number lines that match
+grep 'foo' /directory -n|--line-number            # Add line numbers
+grep 'foo' /directory --colour                    # Add colour to output
+grep 'foo\|bar' /directory -R                     # Search for 'foo' or 'bar' in directory
+grep --extended-regexp|-E 'foo|bar' /directory -R # Use regular expressions
+egrep 'foo|bar' /directory -R                     # Use regular expressions
+grep -e 'pattern' filename.txt                    # Use to find search patterns 
 ```
 
 --------------------------------------------------------------------------------------------------
@@ -232,12 +230,12 @@ grep -e 'pattern' (filename)               # Use to find search patterns
 
 ### tar 
 ```bash
-tar (-c:create, -x:extract, f:filename) 	# Command-line tool for creating and extracting tar archives.
-tar -cf archive.tar file1 file2 file3 	  # Creates a tar archive named "archive.tar" containing the specified files.
-tar -tf archive.tar 		                	# Lists the contents of a tar archive.
--z or --gzip 				                      # Flag for gzip compression.
--j or --bzip2 				                    # Flag for bzip2 compression.
--J or -xz 			                      	  # Flag for xz compression.
+tar (-c:create, -x:extract, -t:list, f:filename) 	# Command-line tool for creating and extracting tar archives.
+tar -cf archive.tar file1 file2 file3 	            # Creates a tar archive named "archive.tar" containing the specified files.
+tar -tf archive.tar 		                	         # Lists the contents of a tar archive.
+-z or --gzip 	.tar.gz			                     # Flag for gzip compression.
+-j or --bzip2 	.tar.bz2			                     # Flag for bzip2 compression.
+-J or -xz 		.tar.xz	                      	   # Flag for xz compression.
 ```
 
 ### tar -c
@@ -245,9 +243,9 @@ tar -tf archive.tar 		                	# Lists the contents of a tar archive.
 Compresses (optionally) and combines one or more files into a single *.tar, *.tar.gz, *.tpz or *.tgz file.
 
 ```bash
-tar -c|--create -z|--gzip -f|--file=foo.tgz /bar.txt /baz.txt # Compress bar.txt and baz.txt into foo.tgz
-tar -c|--create -z|--gzip -f|--file=foo.tgz /{bar,baz}.txt    # Compress bar.txt and baz.txt into foo.tgz
-tar -c|--create -z|--gzip -f|--file=foo.tgz /bar              # Compress directory bar into foo.tgz
+tar -c|--create -z|--gzip -f|--file=Cfilename.tar /file1.txt /file2.txt # Compress file1.txt and file2.txt into Cfilename.tar
+tar -c|--create -z|--gzip -f|--file=Cfilename.tar /{file1,file2}.txt    # Compress file1.txt and file2.txt into Cfilename.tar
+tar -c|--create -z|--gzip -f|--file=Cfilename.tar /file                 # Compress directory bar into Cfilename.tar
 ```
 
 
@@ -258,10 +256,10 @@ tar -c|--create -z|--gzip -f|--file=foo.tgz /bar              # Compress directo
 Compresses one or more files into *.zip files.
 
 ```bash
-zip foo.zip /bar.txt                # Compress bar.txt into foo.zip
-zip foo.zip /bar.txt /baz.txt       # Compress bar.txt and baz.txt into foo.zip
-zip foo.zip /{bar,baz}.txt          # Compress bar.txt and baz.txt into foo.zip
-zip -r|--recurse-paths foo.zip /bar # Compress directory bar into foo.zip
+zip Cfilename.zip /file.txt                     # Compress file.txt into Cfilename.zip
+zip Cfilename.zip /file1.txt /file2.txt         # Compress file1.txt and file2.txt into Cfilename.zip
+zip Cfilename.zip /{file1,file2}.txt            # Compress file1.txt and file2.txt into Cfilename.zip
+zip -r|--recurse-paths Cfilename.zip /directory # Compress directory into Cfilename.zip
 ```
 
 ### gzip
@@ -269,8 +267,8 @@ zip -r|--recurse-paths foo.zip /bar # Compress directory bar into foo.zip
 Compresses a single file into *.gz files.
 
 ```bash
-gzip /bar.txt foo.gz           # Compress bar.txt into foo.gz and then delete bar.txt
-gzip -k|--keep /bar.txt foo.gz # Compress bar.txt into foo.gz
+gzip /file.txt Cfilename.gz              # Compress file.txt into Cfilename.gz and then delete bar.txt
+gzip -k|--keep /bafiler.txt Cfilename.gz # Compress file.txt into Cfilename.gz
 ```
 
 ## Decompressing Files
@@ -278,21 +276,21 @@ gzip -k|--keep /bar.txt foo.gz # Compress bar.txt into foo.gz
 ### tar -x
 
 ```bash
-tar -x|--extract -z|--gzip -f|--file=foo.tar.gz # Un-compress foo.tar.gz into current directory
-tar -x|--extract -f|--file=foo.tar              # Un-combine foo.tar into current directory
+tar -x|--extract -z|--gzip -f|--file=Cfilename.tar.gz # Un-compress Cfilename.tar.gz into current directory
+tar -x|--extract -f|--file=Cfilename.tar              # Un-combine Cfilename.tar into current directory
 ```
 
 ### unzip
 
 ```bash
-unzip foo.zip          # Unzip foo.zip into current directory
+unzip Cfilename.zip          # Unzip Cfilename.zip into current directory
 ```
 
 ### gunzip
 
 ```bash
-gunzip foo.gz           # Unzip foo.gz into current directory and delete foo.gz
-gunzip -k|--keep foo.gz # Unzip foo.gz into current directory
+gunzip Cfilename.gz           # Unzip Cfilename.gz into current directory and delete Cfilename.gz
+gunzip -k|--keep Cfilename.gz # Unzip Cfilename.gz into current directory
 ```
 
 
@@ -330,31 +328,29 @@ For a directory, execute means you can enter a directory.
 - a - All of the above
 
 ```bash
-ls -l /foo.sh            # List file permissions
-chmod +100 foo.sh        # Add 1 to the user permission
-chmod -100 foo.sh        # Subtract 1 from the user permission
-chmod u+x foo.sh         # Give the user execute permission
-chmod g+x foo.sh         # Give the group execute permission
-chmod u-x,g-x foo.sh     # Take away the user and group execute permission
-chmod u+x,g+x,o+x foo.sh # Give everybody execute permission
-chmod a+x foo.sh         # Give everybody execute permission
-chmod +x foo.sh          # Give everybody execute permission
+ls -l /file.sh            # List file permissions
+chmod +100 file.sh        # Add 1 to the user permission
+chmod -100 file.sh        # Subtract 1 from the user permission
+chmod u+x file.sh         # Give the user execute permission
+chmod g+x file.sh         # Give the group execute permission
+chmod u-x,g-x file.sh     # Take away the user and group execute permission
+chmod u+x,g+x,o+x file.sh # Give everybody execute permission
+chmod a+x file.sh         # Give everybody execute permission
+chmod +x file.sh          # Give everybody execute permission
+chown USER file.sh        # Change the owner
 ```
 
 --------------------------------------------------------------------------------------------------
 </p>
 </details>
 <details><summary>Symbolic Links</summary><p>
-  
-ln -s S.Directory D.Directory
-ln S.Directory D.Directory
 
 ## Symbolic Links
 
 ```bash
-ln -s|--symbolic foo bar            # Create a link 'bar' to the 'foo' folder
-ln -s|--symbolic -f|--force foo bar # Overwrite an existing symbolic link 'bar'
-ls -l                               # Show where symbolic links are pointing
+ln -s|--symbolic S.Directory D.Directory              # Create a link 'D.Directory ' to the 'S.Directory' folder
+ln -s|--symbolic -f|--force S.Directory D.Directory   # Overwrite an existing symbolic link 'D.Directory '
+ls -l                                                 # Show where symbolic links are pointing
 ```
 
 --------------------------------------------------------------------------------------------------
@@ -384,7 +380,7 @@ ps
 ps aux | grep 
 ps all                 # List all processes
 pg
-pidof foo              # Return the PID of all foo processes
+pidof PName              # Return the PID of all PName processes
 
 CTRL+Z                 # Suspend a process running in the foreground
 bg                     # Resume a suspended process and run in the background
@@ -404,7 +400,7 @@ lsof -itcp:4000        # Return the process listening on port 4000
 Process priorities go from -20 (highest) to 19 (lowest).
 
 ```bash
-nice -n -20 foo        # Change process priority by name
+nice -n -20 PName      # Change process priority by name
 renice 20 PID          # Change process priority by PID
 ps -o ni PID           # Return the process priority of PID
 ```
@@ -415,9 +411,9 @@ ps -o ni PID           # Return the process priority of PID
 CTRL+C                 # Kill a process running in the foreground
 kill PID               # Shut down process by PID gracefully. Sends TERM signal.
 kill -9 PID            # Force shut down of process by PID. Sends SIGKILL signal.
-pkill foo              # Shut down process by name gracefully. Sends TERM signal.
-pkill -9 foo           # force shut down process by name. Sends SIGKILL signal.
-killall foo            # Kill all process with the specified name gracefully.
+pkill PName            # Shut down process by name gracefully. Sends TERM signal.
+pkill -9 PName         # force shut down process by name. Sends SIGKILL signal.
+killall PName          # Kill all process with the specified name gracefully.
 ```
 
 --------------------------------------------------------------------------------------------------
@@ -439,13 +435,13 @@ crontab -e                 # Edit cron tab in Vim
 crontab /path/crontab      # Load cron tab from a file
 crontab -l > /path/crontab # Save cron tab to a file
 
-* * * * * foo              # Run foo every minute
-*/15 * * * * foo           # Run foo every 15 minutes
-0 * * * * foo              # Run foo every hour
-15 6 * * * foo             # Run foo daily at 6:15 AM
-44 4 * * 5 foo             # Run foo every Friday at 4:44 AM
-0 0 1 * * foo              # Run foo at midnight on the first of the month
-0 0 1 1 * foo              # Run foo at midnight on the first of the year
+* * * * * PName            # Run PName every minute
+*/15 * * * * PName         # Run PName every 15 minutes
+0 * * * * PName            # Run PName every hour
+15 6 * * * PName           # Run PName daily at 6:15 AM
+44 4 * * 5 PName           # Run PName every Friday at 4:44 AM
+0 0 1 * * PName            # Run PName at midnight on the first of the month
+0 0 1 1 * PName            # Run PName at midnight on the first of the year
 
 at -l                      # List scheduled tasks
 at -c 1                    # Show task with ID 1
@@ -464,20 +460,20 @@ at tomorrow                # Create a task in Vim to execute tomorrow
   
 ## SystemD and Services
 ```bash
-systemctl 						# Controls the systemd system and service manager.
-systemctl -t help 					# Displays help information about systemd unit types.
-systemctl list-units -t service 			# Lists all active systemd services on the system.
-systemctl --faild -type-service 			# Lists all failed systemd services of type "service".
-systemctl start ___ 					# Starts a systemd service with the specified name.
-systemctl is-active ___ 				# Checks if a systemd service with the specified name is currently active.
-systemctl stop ___ 					# Stops a systemd service with the specified name.
-systemctl enable ___ 					# Enables a systemd service with the specified name to start automatically at boot time.
-systemctl restart ___ 					# Restarts a systemd service with the specified name.
-systemctl reload ____ 					# Reloads the configuration of a systemd service with the specified name.
-systemctl reload-or-restart ___ 			# Reloads the configuration of a systemd service with the specified name, or restarts it if the reload fails.
-systemctl list-dependencies ___ 			# Lists the dependencies of a systemd unit with the specified name.
-systemctl list-dependencies --reverse ___ 		# Lists the reverse dependencies of a systemd unit with the specified name.
-systemctl status (sshd) 				# Displays the status of the "sshd" systemd service.
+systemctl 						                # Controls the systemd system and service manager.
+systemctl -t help 					          # Displays help information about systemd unit types.
+systemctl list-units -t service 			    # Lists all active systemd services on the system.
+systemctl --faild -type-service 			    # Lists all failed systemd services of type "service".
+systemctl start ___ 					          # Starts a systemd service with the specified name.
+systemctl is-active ___ 				       # Checks if a systemd service with the specified name is currently active.
+systemctl stop ___ 					          # Stops a systemd service with the specified name.
+systemctl enable ___ 					       # Enables a systemd service with the specified name to start automatically at boot time.
+systemctl restart ___ 				          # Restarts a systemd service with the specified name.
+systemctl reload ____ 					       # Reloads the configuration of a systemd service with the specified name.
+systemctl reload-or-restart ___ 			    # Reloads the configuration of a systemd service with the specified name, or restarts it if the reload fails.
+systemctl list-dependencies ___ 			    # Lists the dependencies of a systemd unit with the specified name.
+systemctl list-dependencies --reverse ___  # Lists the reverse dependencies of a systemd unit with the specified name.
+systemctl status sshd.service				    # Displays the status of the "sshd" systemd service.
 ```
 
 --------------------------------------------------------------------------------------------------
@@ -489,7 +485,7 @@ systemctl status (sshd) 				# Displays the status of the "sshd" systemd service.
   
 ## System Logging and Journaling
 ```bash
-system Logging /var/log/ 				# Directory containing system logs.
+system Logging /var/log/ 	   # Directory containing system logs.
 Journal entries 					# Log entries generated by the systemd journal.
 ```
 
@@ -503,21 +499,52 @@ Journal entries 					# Log entries generated by the systemd journal.
   
 ## Networking
 ```bash
-nmcli 							# Command-line tool for managing NetworkManager.
-nmtui 							# Text-based user interface for managing NetworkManager.
-ip addr 						# Displays network interface configuration information.
-ip config 						# Displays IP configuration information.
-ip route 						# Displays the system's routing table.
-tracepath 						# Traces the path that a packet takes from the host system to a remote system.
-ping 							# Sends ICMP echo request packets to a remote system to test connectivity.
-hostname 						# Displays or sets the system's hostname.
-hostnamectl						# Command-line tool for managing the system's hostname.
-hostnamectl status 					# Displays the current hostname and related information.
+nmcli 							                        # Command-line tool for managing NetworkManager.
+nmtui 							                        # Text-based user interface for managing NetworkManager.
+ip addr 						                           # Displays network interface configuration information.
+ip config 						                        # Displays IP configuration information.
+ip route 						                        # Displays the system's routing table.
+tracepath 						                        # Traces the path that a packet takes from the host system to a remote system.
+ping 							                           # Sends ICMP echo request packets to a remote system to test connectivity.
+hostname 						                        # Displays or sets the system's hostname.
+hostnamectl						                        # Command-line tool for managing the system's hostname.
+hostnamectl status 					                  # Displays the current hostname and related information.
 cat /etc/sysconfig/network-scripts//ifcfg-enp0s3 	# Displays the configuration file for the "enp0s3" network interface.
-cat /etc/hosts 						# Displays the system's hosts file.
-cat /etc/resolv.cof					# Displays the system's DNS resolver configuration file.
+cat /etc/hosts 						                  # Displays the system's hosts file.
+cat /etc/resolv.cof					                  # Displays the system's DNS resolver configuration file.
+```
+## Network Troubleshooting
+
+```bash
+ping example.com            # Send multiple ping requests using the ICMP protocol
+ping -c 10 -i 5 example.com # Make 10 attempts, 5 seconds apart
+
+ip addr                     # List IP addresses on the system
+ip route show               # Show IP addresses to router
+
+netstat -i|--interfaces     # List all network interfaces and in/out usage
+netstat -l|--listening      # List all open ports
+
+traceroute example.com      # List all servers the network traffic goes through
+
+mtr -w|--report-wide example.com                                    # Continually list all servers the network traffic goes through
+mtr -r|--report -w|--report-wide -c|--report-cycles 100 example.com # Output a report that lists network traffic 100 times
+
+nmap 0.0.0.0                # Scan for the 1000 most common open ports on localhost
+nmap 0.0.0.0 -p1-65535      # Scan for open ports on localhost between 1 and 65535
+nmap 192.168.4.3            # Scan for the 1000 most common open ports on a remote IP address
+nmap -sP 192.168.1.1/24     # Discover all machines on the network by ping'ing them
 ```
 
+## DNS
+
+```bash
+host example.com            # Show the IPv4 and IPv6 addresses
+
+dig example.com             # Show complete DNS information
+
+cat /etc/resolv.conf        # resolv.conf lists nameservers
+```
 --------------------------------------------------------------------------------------------------
 
 </p>
@@ -526,10 +553,10 @@ cat /etc/resolv.cof					# Displays the system's DNS resolver configuration file.
 
 ## Miscellaneous
 ```bash	
-acl 							# Command-line tool for managing file ACLs (Access Control Lists).
-getfacl FileName 					# Displays the ACLs for the specified file.
-setfacl -m u:user:(r,w,x) FileName 			# Adds or modifies the ACL for the specified file, giving the user "user" read, write, and execute permissions.
-ls -laR >						# Lists all files recursively in a directory, including hidden files, and saves the output to standard output.
+acl 							            # Command-line tool for managing file ACLs (Access Control Lists).
+getfacl FileName 					      # Displays the ACLs for the specified file.
+setfacl -m u:user:(r,w,x) FileName  # Adds or modifies the ACL for the specified file, giving the user "user" read, write, and execute permissions.
+ls -laR >						         # Lists all files recursively in a directory, including hidden files, and saves the output to standard output.
 ```
 
 --------------------------------------------------------------------------------------------------
@@ -541,17 +568,17 @@ ls -laR >						# Lists all files recursively in a directory, including hidden fi
  
 ## User and Group Management
 ```bash	
-sudo usermod -aG groubname username 			# Adds the user "username" to the group "groupname".
-sudo usermod -aG wheel mali 				# Adds the user "mali" to the "wheel" group, which typically grants administrative privileges.
-sudo userdel 						# Command-line tool for deleting a user.
-sudo useradd 						# Command-line tool for adding a new user.
-id user 						# Displays information about the user with the specified username.
-groups 							# Lists the groups that the current user belongs to.
-cat /etc/group 						# Displays the system's group database.
-umask 							# Command-line tool for setting the default permissions for new files and directories.
-sudo chage -m 0 -M 90 -W 7 -I 14 user03 		# Changes the password aging settings for the user "user03".
-sudo usermod -L user03 					# Locks the password for the user "user03".
-sudo groupadd groupname 				# Command-line tool for creating a new group.
+sudo usermod -aG groubname username       # Adds the user "username" to the group "groupname".
+sudo usermod -aG wheel username				# Adds the user "username" to the "wheel" group, which typically grants administrative privileges.
+sudo userdel 						            # Command-line tool for deleting a user.
+sudo useradd 						            # Command-line tool for adding a new user.
+id user 						                  # Displays information about the user with the specified username.
+groups 							               # Lists the groups that the current user belongs to.
+cat /etc/group 						         # Displays the system's group database.
+umask 							               # Command-line tool for setting the default permissions for new files and directories.
+sudo chage -m 0 -M 90 -W 7 -I 14 user03   # Changes the password aging settings for the user "user03".
+sudo usermod -L user03 					      # Locks the password for the user "user03".
+sudo groupadd groupname 				      # Command-line tool for creating a new group.
 ```
 --------------------------------------------------------------------------------------------------
 
