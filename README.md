@@ -303,6 +303,7 @@ gunzip -k|--keep Cfilename.gz # Unzip Cfilename.gz into current directory
 ## User and Group Management
 ```bash
 `User Management`
+```bash
 useradd -g itadmin -c "DB User" -u 1135 -s "/bin/sh" -d /home/techguy1 
 # In the above command, we are creating the new user with custom options as simple "#useradd <user>" will create with default setting. The -g (group) -c (description) -u (user id) -s (which shell to be assigned) -d (landed home dir)
 sudo useradd -g <primary group> -G <secondary group> username # assign the user primary and secondary group
@@ -315,21 +316,22 @@ userdel -r username                                           # Command-line too
 id user 						                                          # Displays information about the user with the specified username.
 umask 							                                          # Command-line tool for setting the default permissions for new files and directories.
 `Group Management`
+```
+```bash
 groups 							                                          # Lists the groups that the current user belongs to.
 cat /etc/group 						                                    # Displays the system's group database.
 groupadd groupname 				                                    # Command-line tool for creating a new group.
 groupdel groupname                                            # removes an existing group
 `Password Management`
+```
+```bash
 chage                                                         # set password expiry
 chage -m 0 -M 90 -W 7 -I 14 user03                            # Changes the password aging settings for the user "user03".
 passwd -l username                                            # locking password of user
 passwd -u username                                            # unlocking password of user
 passwd -e username                                            # expire password
 passwd -x -1 username                                         # Turnoff password expiry
-echo 'myPassword123' | sudo passwd --stdin <user> 
-
-
-
+echo 'myPassword123' | sudo passwd --stdin username
 ```
 --------------------------------------------------------------------------------------------------
 
