@@ -43,7 +43,7 @@ ls -a|--all                                  # List directories including hidden
 ls -l                                        # List directories in long form
 ls -l -h|--human-readable                    # List directories in long form with human readable sizes
 ls -t                                        # List directories by modification time, newest first
-ls -lR /Directory (& or 2)> lsfile 			   # Lists all files recursively in a directory and saves the output to a file named "lsfile". Any errors that occur during the process will also be saved to the same file.
+ls -lR /Directory (& or 2)> lsfile 			     # Lists all files recursively in a directory and saves the output to a file named "lsfile". Any errors that occur during the process will also be saved to the same file.
 ls -lR /Directory | tee Filename | less      # Lists all files recursively in a directory, saves the output to a file named "Filename", and displays the output in the pager "less".
 stat filename.txt                            # List size, created and modified timestamps for a file
 stat filename.txt                            # List size, created and modified timestamps for a directory
@@ -301,30 +301,33 @@ gunzip -k|--keep Cfilename.gz # Unzip Cfilename.gz into current directory
 <p>
 
 ## User and Group Management
-```bash	
+```bash
+`User Management`
 useradd -g itadmin -c "DB User" -u 1135 -s "/bin/sh" -d /home/techguy1 
 # In the above command, we are creating the new user with custom options as simple "#useradd <user>" will create with default setting. The -g (group) -c (description) -u (user id) -s (which shell to be assigned) -d (landed home dir)
 sudo useradd -g <primary group> -G <secondary group> username # assign the user primary and secondary group
 usermod -aG groubname username                                # Adds the user "username" to the group "groupname".
-usermod -aG wheel username			                             # Adds the user "username" to the "wheel" group, which typically grants administrative privileges.
+usermod -aG wheel username			                              # Adds the user "username" to the "wheel" group, which typically grants administrative privileges.
 usermod -L username                                           # locking user
 usermod -U username                                           # unlocking user
-userdel username						                             # Command-line tool for deleting a user, leaves his home directory intact.
+userdel username						                                  # Command-line tool for deleting a user, leaves his home directory intact.
 userdel -r username                                           # Command-line tool for deleting a user and also deletes his home directory.
-id user 						                                      # Displays information about the user with the specified username.
-umask 							                                   # Command-line tool for setting the default permissions for new files and directories.
-usermod -L user03 					                             # Locks the password for the user "user03".
-groups 							                                   # Lists the groups that the current user belongs to.
-cat /etc/group 						                             # Displays the system's group database.
-groupadd groupname 				                                # Command-line tool for creating a new group.
+id user 						                                          # Displays information about the user with the specified username.
+umask 							                                          # Command-line tool for setting the default permissions for new files and directories.
+`Group Management`
+groups 							                                          # Lists the groups that the current user belongs to.
+cat /etc/group 						                                    # Displays the system's group database.
+groupadd groupname 				                                    # Command-line tool for creating a new group.
 groupdel groupname                                            # removes an existing group
+`Password Management`
 chage                                                         # set password expiry
 chage -m 0 -M 90 -W 7 -I 14 user03                            # Changes the password aging settings for the user "user03".
-passwd -l <user>                                              # locking password of user
-passwd -u <user>                                              # unlocking password of user
-passwd -e <user>                                              # expire password 
+passwd -l username                                            # locking password of user
+passwd -u username                                            # unlocking password of user
+passwd -e username                                            # expire password
+passwd -x -1 username                                         # Turnoff password expiry
 echo 'myPassword123' | sudo passwd --stdin <user> 
-passwd -x -1 <user>                                           # Turnoff password expiry
+
 
 
 ```
