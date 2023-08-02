@@ -670,6 +670,7 @@ yum list installed            # displays a list of all the packages that are cur
 
 <details><summary>BASH</summary>
 <p>
+  
 ## Bash Profile
 
 - bash - `.bashrc`
