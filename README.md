@@ -635,5 +635,38 @@ $ ssh name
 
 --------------------------------------------------------------------------------------------------
 
+
+</p>
+</details>
+
+<details><summary>Installing Software and Updates (Package)</summary>
+<p>
+
+```bash
+rpm -aq                       # List all installed packages
+rpm -q yum                    # List what version of the yum package is currently installed
+yum list pkgname|pngpattern   # List installed and available packages by name
+yum search KEYWORD            # Search for a package by keyword
+yum info pkgname              # Show details of a package
+yum install pkgname           # Install a package
+yum update                    # Update all packages
+yum remove pkgname            # Remove a package
+yum upgrade pkgname           # Upgrade a package
+yum localinsatll pkgname      # Show details of a local
+yum remove <pkg/command/rpm>  # install/update/upgrade or transaction history
+yum history list              # Show pkg info
+yum history list all          # pkg info install/update/upgrade or transaction history by id
+yum history info <id>         # undo the transaction by id
+yum history undo <id>         # redo the transaction by id
+yum history redo <id>         # yum stores transaction in single SQLite db. To start new transaction history
+yum list installed            # displays a list of all the packages that are currently installed.
+
+```
+--------------------------------------------------------------------------------------------------
+
+</p>
+</details>  
+
+
 </p>
 </details>
